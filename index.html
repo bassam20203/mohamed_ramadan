@@ -1,0 +1,106 @@
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختيار الكورس</title>
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1> محمد رمضان</h1>
+        <nav>
+            <ul>
+                <li><a href="#">الرئيسية</a></li>
+                <li><a href="#">عن المنصة</a></li>
+                <li><a href="#">اتصل بنا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>اختر المحافظة:</h2>
+        <select id="city">
+            <option value="">-- اختر المحافظة --</option>
+            <option value="القاهرة">القاهرة</option>
+            <option value="الجيزة">الجيزة</option>
+            <option value="الإسكندرية">الإسكندرية</option>
+            <option value="الدقهلية">الدقهلية</option>
+            <option value="البحيرة">البحيرة</option>
+            <option value="المنيا">المنيا</option>
+            <option value="أسيوط">أسيوط</option>
+            <option value="سوهاج">سوهاج</option>
+            <option value="قنا">قنا</option>
+            <option value="الأقصر">الأقصر</option>
+            <option value="أسوان">أسوان</option>
+            <option value="الفيوم">الفيوم</option>
+            <option value="بني سويف">بني سويف</option>
+            <option value="المنوفية">المنوفية</option>
+            <option value="الشرقية">الشرقية</option>
+            <option value="الغربية">الغربية</option>
+            <option value="كفر الشيخ">كفر الشيخ</option>
+            <option value="دمياط">دمياط</option>
+            <option value="بورسعيد">بورسعيد</option>
+            <option value="الإسماعيلية">الإسماعيلية</option>
+            <option value="السويس">السويس</option>
+            <option value="شمال سيناء">شمال سيناء</option>
+            <option value="جنوب سيناء">جنوب سيناء</option>
+            <option value="البحر الأحمر">البحر الأحمر</option>
+            <option value="الوادي الجديد">الوادي الجديد</option>
+            <option value="مطروح">مطروح</option>
+            <option value="القليوبية">القليوبية</option>
+        </select>
+
+        <div id="locationSection" class="hidden">
+            <h2>اختر المكان:</h2>
+            <select id="location">
+                <option value="">-- اختر المكان --</option>
+                <!-- الأماكن سيتم ملؤها ديناميكيًا -->
+            </select>
+        </div>
+
+        <div id="filterSection" class="hidden">
+            <h2>اختر نوع الكورس:</h2>
+            <select id="courseType">
+                <option value="">-- اختر النوع --</option>
+                <option value="برمجة">برمجة</option>
+                <option value="تصميم">تصميم</option>
+                <option value="تسويق">تسويق</option>
+                <option value="إدارة">إدارة</option>
+                <option value="تحليل البيانات">تحليل البيانات</option>
+                <option value="ريادة الأعمال">ريادة الأعمال</option>
+                <option value="أوفلاين">تدريب أوفلاين</option>
+            </select>
+        </div>
+
+        <div id="coursesSection" class="hidden">
+            <h2>الكورسات المتاحة:</h2>
+            <div class="courses-container" id="coursesContainer">
+                <!-- الكورسات سيتم ملؤها ديناميكيًا -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 منصة الكورسات. جميع الحقوق محفوظة.</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script src="js.js"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل الكورس</title>
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>منصة الكورسات</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="#">عن المنصة</a></li>
+                <li><a href="#">اتصل بنا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1 id="courseTitle">عنوان الكورس</h1>
+        <img id="courseImage" src="" alt="صورة الكورس" class="course-image">
+        <div class="course-info">
+            <p id="coursePrice">💰 السعر: </p>
+            <p id="courseDuration">⏳ المدة: </p>
+            <p id="courseRating">⭐ التقييم: </p>
+            <p id="coursePhone">📞 رقم الهاتف: </p>
+        </div>
+
+        <div class="course-content">
+            <h2>محتوى الكورس:</h2>
+            <p id="courseDescription">وصف تفصيلي للكورس سيتم ملؤه ديناميكيًا.</p>
+        </div>
+
+        <div class="comments-section">
+            <h2>التعليقات:</h2>
+            <div class="comments-container" id="commentsContainer">
+                <!-- التعليقات سيتم ملؤها ديناميكيًا -->
+            </div>
+            <form id="commentForm">
+                <textarea id="commentInput" rows="3" placeholder="اكتب تعليقك هنا..." required></textarea>
+                <button type="submit">إرسال التعليق</button>
+            </form>
+        </div>
+
+        <div class="suggestions-section">
+            <h2>تقديم اقتراحات:</h2>
+            <textarea id="suggestion" rows="5" placeholder="اكتب اقتراحك هنا..."></textarea>
+            <button onclick="submitSuggestion()">إرسال الاقتراح</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 منصة الكورسات. جميع الحقوق محفوظة.</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        // عرض معلومات الكورس
+        const courseTitle = localStorage.getItem("courseTitle");
+        const courseImage = localStorage.getItem("courseImage");
+        const coursePrice = localStorage.getItem("coursePrice");
+        const courseDuration = localStorage.getItem("courseDuration");
+        const courseRating = localStorage.getItem("courseRating");
+        const coursePhone = localStorage.getItem("coursePhone");
+        const courseDescription = "هذا الكورس يقدم شرحًا تفصيليًا عن الموضوع مع أمثلة عملية. سيتعلم الطلاب كيفية تطبيق المهارات في مشاريع حقيقية.";
+
+        document.getElementById('courseTitle').textContent = courseTitle;
+        document.getElementById('courseImage').src = courseImage;
+        document.getElementById('coursePrice').textContent = `💰 السعر: ${coursePrice}`;
+        document.getElementById('courseDuration').textContent = `⏳ المدة: ${courseDuration}`;
+        document.getElementById('courseRating').textContent = `⭐ التقييم: ${courseRating}`;
+        document.getElementById('coursePhone').textContent = `📞 رقم الهاتف: ${coursePhone}`;
+        document.getElementById('courseDescription').textContent = courseDescription;
+
+        // إدارة التعليقات
+        const commentsContainer = document.getElementById('commentsContainer');
+        const commentForm = document.getElementById('commentForm');
+        const commentInput = document.getElementById('commentInput');
+
+        commentForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const commentText = commentInput.value.trim();
+            if (commentText) {
+                const commentElement = document.createElement('div');
+                commentElement.classList.add('comment');
+                commentElement.innerHTML = `
+                    <p>${commentText}</p>
+                    <small>${new Date().toLocaleString()}</small>
+                `;
+                commentsContainer.appendChild(commentElement);
+                commentInput.value = '';
+                commentsContainer.scrollTop = commentsContainer.scrollHeight; // التمرير لأسفل
+            }
+        });
+
+        // إضافة بعض التعليقات الافتراضية
+        const defaultComments = [
+            "كورس رائع! شكرًا للمنصة.",
+            "شرح واضح ومفيد.",
+            "أنصح بهذا الكورس للمبتدئين."
+        ];
+
+        defaultComments.forEach(comment => {
+            const commentElement = document.createElement('div');
+            commentElement.classList.add('comment');
+            commentElement.innerHTML = `
+                <p>${comment}</p>
+                <small>${new Date().toLocaleString()}</small>
+            `;
+            commentsContainer.appendChild(commentElement);
+        });
+
+        // إرسال الاقتراحات
+        function submitSuggestion() {
+            const suggestion = document.getElementById('suggestion').value;
+            if (suggestion.trim()) {
+                alert(`شكرًا على اقتراحك: ${suggestion}`);
+                document.getElementById('suggestion').value = '';
+            } else {
+                alert("الرجاء كتابة اقتراحك قبل الإرسال.");
+            }
+        }
+    </script>
+</body>
+</html>
